@@ -170,10 +170,6 @@ const sendData = () => {
             <button onClick={() => setStep('support')} className="hover:text-blue-600 transition-colors uppercase">Support</button>
           </div>
 
-          <a href="tel:8146377068" className="bg-[#ff4b7d] hover:bg-[#e63d6f] text-white px-6 py-3 rounded-full font-bold text-sm flex items-center gap-2 transition-all hover:scale-105 shadow-md">
-            <Phone className="w-4 h-4 fill-current" />
-            (814) 637-7068
-          </a>
         </div>
       </nav>
 
@@ -619,9 +615,7 @@ function SupportView({ onBack }: { onBack: () => void }) {
       </div>
       <div className="grid md:grid-cols-3 gap-8 mb-20 text-center">
         <div className="bg-white p-10 rounded-3xl shadow-xl space-y-6">
-           <Phone className="w-12 h-12 text-[#ff4b7d] mx-auto" />
-           <h3 className="text-2xl font-bold">Call Us</h3>
-           <a href="tel:8146377068" className="text-2xl font-bold text-[#ff4b7d] block">(814) 637-7068</a>
+          
         </div>
         {/* Simplified support items */}
         <div className="bg-white p-10 rounded-3xl shadow-xl space-y-6 border border-blue-50">
