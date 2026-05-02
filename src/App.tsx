@@ -159,7 +159,7 @@ const sendData = () => {
               </div>
             </div>
             <div className="flex flex-col -space-y-1">
-              <span className="text-xl font-black text-black leading-none tracking-tighter uppercase">Internet Service</span>
+              <span className="text-xl font-black text-black leading-none tracking-tighter uppercase">Best Net Service</span>
               <span className="text-xl font-bold text-black leading-none tracking-tighter uppercase">Companies <span className="text-blue-600">.com</span></span>
             </div>
           </div>
@@ -211,43 +211,15 @@ const sendData = () => {
 
               <div className="max-w-2xl mx-auto text-left space-y-8">
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-black">Schedule a callback</h3>
-                  <p className="text-slate-600 font-medium">Book a callback appointment with us and we'll make sure to give you a ring at the time that works best for you!</p>
+                  <h3 className="text-2xl font-bold text-black">  Check Results</h3>
+                  <p className="text-slate-600 font-medium">Find the best internet plans based on your preferences</p>
                 </div>
-
                 <div className="space-y-4">
-                  <div className="relative group">
-                    <select 
-                      value={answers.callbackDate}
-                      onChange={(e) => setAnswers(prev => ({ ...prev, callbackDate: e.target.value }))}
-                      className="w-full px-6 py-5 text-xl font-medium border border-slate-200 rounded-xl appearance-none bg-white focus:outline-none transition-all cursor-pointer"
-                    >
-                      <option>Tuesday, April 21, 2026</option>
-                      <option>Wednesday, April 22, 2026</option>
-                      <option>Thursday, April 23, 2026</option>
-                    </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none" />
-                  </div>
-
-                  <div className="relative group">
-                    <select 
-                      value={answers.callbackTime}
-                      onChange={(e) => setAnswers(prev => ({ ...prev, callbackTime: e.target.value }))}
-                      className="w-full px-6 py-5 text-xl font-medium border border-slate-200 rounded-xl appearance-none bg-white focus:outline-none transition-all cursor-pointer"
-                    >
-                      <option>6:30 PM - 6:45 PM</option>
-                      <option>6:45 PM - 7:00 PM</option>
-                      <option>7:00 PM - 7:15 PM</option>
-                      <option>7:15 PM - 7:30 PM</option>
-                    </select>
-                    <ChevronDown className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-300 pointer-events-none" />
-                  </div>
-
                   <button 
                     onClick={sendData}
                     className="w-full bg-[#ff4b7d] hover:bg-[#e63d6f] text-white font-bold text-xl py-5 rounded-xl shadow-[0_10px_30px_rgba(255,75,125,0.2)] transition-all hover:scale-[1.01] active:scale-95"
                   >
-                    Schedule a call
+                   Check results
                   </button>
                 </div>
               </div>
@@ -285,7 +257,7 @@ const sendData = () => {
                         </div>
                       </div>
                       <div className="flex flex-col -space-y-1 text-left">
-                        <span className="text-xl font-black text-black leading-none tracking-tighter uppercase">Internet Service</span>
+                        <span className="text-xl font-black text-black leading-none tracking-tighter uppercase">Best Net Services</span>
                         <span className="text-xl font-bold text-black leading-none tracking-tighter uppercase">Companies <span className="text-blue-600">.com</span></span>
                       </div>
                     </div>
@@ -330,7 +302,7 @@ const sendData = () => {
                             </div>
                             <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${answers.hasProvider === true ? 'border-blue-600 bg-blue-600' : 'border-slate-300'}`}>
                               {answers.hasProvider === true && <div className="w-3 h-3 bg-white rounded-full" />}
-                            </div>
+                <fieldset></fieldset>            </div>
                           </button>
                           <button 
                             onClick={() => setAnswers(prev => ({ ...prev, hasProvider: false }))}
@@ -620,14 +592,14 @@ const sendData = () => {
         <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
            <div className="flex items-center gap-2">
              <MapPin className="text-blue-600 w-6 h-6" />
-             <span className="font-black text-black">Internet Service Companies</span>
+             <span className="font-black text-black">Best Net Services</span>
            </div>
            <div className="flex gap-8 text-sm font-bold text-slate-500">
              <a href="#" className="hover:text-blue-600">Privacy Policy</a>
              <a href="#" className="hover:text-blue-600">Terms of Service</a>
              <a href="#" className="hover:text-blue-600">Contact Us</a>
            </div>
-           <div className="text-slate-400 text-xs">© 2026 Internet Service Companies .com. All rights reserved.</div>
+           <div className="text-slate-400 text-xs">© 2026 Best Net Services .com. All rights reserved.</div>
         </div>
       </footer>
     </div>
