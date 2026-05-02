@@ -203,7 +203,7 @@ const sendData = () => {
                   <div className="space-y-2">
                     <p className="text-slate-700 text-lg">
                       Our call center is closed at the moment. Don't worry, your query has been registered. Our partner <span className="font-bold text-black font-sans">Centerfield</span> will call you when the call center opens on <br className="hidden md:block" />
-                      <span className="text-blue-600 font-bold">(651) 432-9293</span>.
+                      <p>(651) 432-9293</p>
                     </p>
                   </div>
                 </div>
@@ -212,15 +212,10 @@ const sendData = () => {
               <div className="max-w-2xl mx-auto text-left space-y-8">
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold text-black">  Check Results</h3>
-                  <p className="text-slate-600 font-medium">Find the best internet plans based on your preferences</p>
+                  <p className="text-slate-600 font-medium">Find the best internet plans based on your preferencesgit</p>
                 </div>
                 <div className="space-y-4">
-                  <button 
-                    onClick={sendData}
-                    className="w-full bg-[#ff4b7d] hover:bg-[#e63d6f] text-white font-bold text-xl py-5 rounded-xl shadow-[0_10px_30px_rgba(255,75,125,0.2)] transition-all hover:scale-[1.01] active:scale-95"
-                  >
-                   Check results
-                  </button>
+      <p className="text-lg font-semibold text-black">Check results</p>
                 </div>
               </div>
             </motion.div>
