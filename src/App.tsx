@@ -3,28 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Wifi, Phone, Check, X, ChevronLeft, Info, CheckCircle2, Tv, Gamepad2, ArrowRight, ShieldCheck, Zap, Globe, MapPin, Search, Lock, Mail, MessageSquare } from "lucide-react";
-
-const [step, setStep] = useState("initial");
-import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from 'motion/react';
-
-function CountUp({ to, duration = 2, decimals = 0, suffix = "", prefix = "" }: { to: number, duration?: number, decimals?: number, suffix?: string, prefix?: string }) {
-  const count = useMotionValue(0);
-  const rounded = useTransform(count, (latest) => {
-    return prefix + latest.toFixed(decimals) + suffix;
-  });
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true });
-
-  useEffect(() => {
-    if (isInView) {
-      animate(count, to, { duration, ease: "easeOut" });
-    }
-  }, [isInView, to, duration, count]);
-
-  return <motion.span ref={ref}>{rounded}</motion.span>;
-}
+import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from "motion/react";
 
 type Step = 'landing' | 'provider' | 'wishes' | 'price' | 'speed' | 'zip' | 'name' | 'email' | 'phone' | 'callback' | 'loading' | 'results' | 'how-it-works' | 'providers-list' | 'support';
 
@@ -80,7 +61,7 @@ const sendData = () => {
   const steps: Step[] = ['landing', 'provider', 'wishes', 'price', 'speed', 'zip', 'name', 'email', 'phone'];
   const currentStepIndex = steps.indexOf(step);
   
-  // Custom progress percentages to match images
+  // Custom progress percentages to match image
   const getProgress = () => {
     if (step === 'landing') return 0;
     if (step === 'name') return 80;
@@ -273,7 +254,7 @@ else if (step === 'callback') {
                             </div>
                             <div className={`w-8 h-8 rounded-full border-2 flex items-center justify-center ${answers.hasProvider === true ? 'border-blue-600 bg-blue-600' : 'border-slate-300'}`}>
                               {answers.hasProvider === true && <div className="w-3 h-3 bg-white rounded-full" />}
-                <fieldset></fieldset>            </div>
+            </div>
                           </button>
                           <button 
                             onClick={() => setAnswers(prev => ({ ...prev, hasProvider: false }))}
@@ -651,15 +632,18 @@ function HowItWorksView({ onBack }: { onBack: () => void }) {
             <p className="text-slate-600 text-xl leading-relaxed">Our system checks hundreds of local and national provider databases.</p>
          </div>
       </div>
-      <button onClick={onBack} className="mt-20 text-blue-600 font-bold flex items-center gap-2 mx-auto"><ChevronLeft/> Back to Home</button>
+      <button 
+  onClick={onBack} 
+  className="mt-20 text-blue-600 font-bold flex items-center"
+>
+  Back
+</button>
     </motion.div>
   );
 }
-onabort
-function ResultsView({ onBack, answers }: { onBack: () => void, answers: Answers }) {
-
-const sendData = async () => {
-  console.log("SENDING DATA");
+function ResultsView({ onBack, answers }: { onBack: () => void; answers: Answers }) {
+  const sendData = async () => {
+    console.log("SENDING DATA");
 
   try {
     await fetch("https://script.google.com/macros/s/AKfycbxwuKDnB7n1CDg9iczMHf4l_3t6-4vmqIyjf14kf_roTLX6H45Gdan3WrWj0Bxp3FeBHQ/exec", {
@@ -673,8 +657,7 @@ const sendData = async () => {
     });
 
     // move forward after sending
-    setStep("loading");
-    setTimeout(() => setStep("results"), 1500);
+   console.log("Data sent");
 
   } catch (err) {
     console.error(err);
@@ -731,3 +714,4 @@ const sendData = async () => {
     </motion.div>
   );
 }
+
