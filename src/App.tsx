@@ -3,29 +3,10 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { useState, useEffect, useRef } from 'react';
-import { 
-  Wifi, 
-  Phone, 
-  Check, 
-  X, 
-  ChevronLeft, 
-  Info, 
-  CheckCircle2,
-  Tv,
-  Gamepad2,
-  ArrowRight,
-  ShieldCheck,
-  Zap,
-  Globe,
-  MapPin,
-  Search,
-  Lock,
-  Mail,
-  MessageSquare,
-  HelpCircle,
-  ChevronDown
-} from 'lucide-react';
+import { useState, useEffect, useRef } from "react";
+import { Wifi, Phone, Check, X, ChevronLeft, Info, CheckCircle2, Tv, Gamepad2, ArrowRight, ShieldCheck, Zap, Globe, MapPin, Search, Lock, Mail, MessageSquare } from "lucide-react";
+
+const [step, setStep] = useState("initial");
 import { motion, AnimatePresence, useMotionValue, useTransform, animate, useInView } from 'motion/react';
 
 function CountUp({ to, duration = 2, decimals = 0, suffix = "", prefix = "" }: { to: number, duration?: number, decimals?: number, suffix?: string, prefix?: string }) {
@@ -119,10 +100,9 @@ const sendData = () => {
     else if (step === 'name') setStep('email');
     else if (step === 'email') setStep('phone');
     else if (step === 'phone') setStep('callback');
-    else if (step === 'callback') {
-      setStep('loading');
-      setTimeout(() => setStep('results'), 2500);
-    }
+else if (step === 'callback') {
+  sendData(); // 👈 SEND DATA HERE
+}
   };
 
   const handleBack = () => {
@@ -615,7 +595,7 @@ function SupportView({ onBack }: { onBack: () => void }) {
       </div>
       <div className="grid md:grid-cols-3 gap-8 mb-20 text-center">
         <div className="bg-white p-10 rounded-3xl shadow-xl space-y-6">
-          
+
         </div>
         {/* Simplified support items */}
         <div className="bg-white p-10 rounded-3xl shadow-xl space-y-6 border border-blue-50">
@@ -679,23 +659,22 @@ onabort
 function ResultsView({ onBack, answers }: { onBack: () => void, answers: Answers }) {
 
 const sendData = async () => {
-  console.log("BUTTON CLICKED");
+  console.log("SENDING DATA");
 
   try {
     await fetch("https://script.google.com/macros/s/AKfycbxwuKDnB7n1CDg9iczMHf4l_3t6-4vmqIyjf14kf_roTLX6H45Gdan3WrWj0Bxp3FeBHQ/exec", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      mode: "no-cors",
       body: JSON.stringify({
         full_name: `${answers.firstName || ""} ${answers.lastName || ""}`,
         email: answers.email || "",
-        phone_number: answers.phone || "",
         zip_code: answers.zipCode || ""
-      }),
+      })
     });
 
-    alert("Data sent");onBack
+    // move forward after sending
+    setStep("loading");
+    setTimeout(() => setStep("results"), 1500);
 
   } catch (err) {
     console.error(err);
