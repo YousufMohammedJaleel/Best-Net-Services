@@ -497,17 +497,7 @@ else if (step === 'callback') {
                 <div className="absolute -inset-2 bg-blue-600/5 rounded-[2rem] -z-10 animate-pulse" />
               </div>
 
-               {/* Partner Brands */}
-              <div className="mt-24 space-y-12">
-                <h3 className="text-2xl font-bold text-blue-800">Partnered with recognized internet brands</h3>
-                <div className="flex flex-wrap justify-center items-center gap-12 opacity-80 filter grayscale hover:grayscale-0 transition-all duration-500">
-                  <LogoPlaceholder name="AT&T" color="text-sky-500" />
-                  <LogoPlaceholder name="Verizon" color="text-red-600" />
-                  <LogoPlaceholder name="Viasat" color="text-blue-900" />
-                  <LogoPlaceholder name="Rise Broadband" color="text-emerald-600" />
-                  <LogoPlaceholder name="COX" color="text-blue-500" />
-                </div>
-              </div>
+            <div className="mt-24"></div>
             </motion.div>
           )}
 
